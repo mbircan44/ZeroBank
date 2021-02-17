@@ -40,9 +40,8 @@ public class AccountSummaryStepDefs {
     public void account_summary_page_should_have_to_following_account_types(List<String> dataTable) {
 
         List<String> actualTypes = BrowserUtils.getElementsText(new AccountSummaryPage().accountTypes);
-   Assert.assertEquals(dataTable,actualTypes);
 
-   //     Assert.assertEquals(actualTypes,dataTable);
+        Assert.assertEquals(dataTable,actualTypes);
 
     }
     @Then("Credit accounts table must have columns")
@@ -53,7 +52,10 @@ public class AccountSummaryStepDefs {
         Assert.assertEquals(dataTable,actualColumnsTypes);
 
     }
-    }
+
+
+
+}
 
 
 

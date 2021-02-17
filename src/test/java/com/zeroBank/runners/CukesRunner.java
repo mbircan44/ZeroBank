@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/zeroBank/stepDefinitions",
         strict = true,
-        dryRun = false,
-        tags = "@wip"
 
+        dryRun = true,
+        tags = "@wip"
 )
 public class CukesRunner {
 }
