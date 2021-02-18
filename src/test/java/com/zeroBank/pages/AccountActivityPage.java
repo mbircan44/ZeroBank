@@ -34,6 +34,23 @@ public class AccountActivityPage extends BasePage{
     @FindBy(xpath = "//button[text()='Find']")
     public WebElement findButton;
 
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']/table/tbody/tr")
+    public List<WebElement> resultTable;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']/table/tbody/tr/td[1]")
+    public List<WebElement> dateColumn;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']/table/tbody/tr/td[2]")
+    public List<WebElement> descriptionColumn;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']/table/tbody/tr/td[3]")
+    public List<WebElement> depositColumn;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']/table/tbody/tr/td[4]")
+    public List<WebElement> withdrawalColumn;
+
+    @FindBy(id = "aa_description")
+    public WebElement descriptionInput;
 
 
 
