@@ -24,6 +24,7 @@ public class LoginStepDefs {
         String password = "password";
         new LoginPage().login(wrongUsername,password);
     }
+
     @Then("the user should stay in Login Page")
     public void the_user_should_stay_in_Login_Page() {
         String currentTitle = Driver.get().getTitle();

@@ -41,16 +41,8 @@ public class AccountActivityStepDefs {
     public void account_drop_down_should_have_the_following_options(List<String> dataTable) {
 
         List<String> actualOptions = BrowserUtils.getElementsText(new AccountActivityPage().accountDropDown);
-
-        for (int i = 0; i < dataTable.size(); i++) {
-
-            Assert.assertEquals(dataTable, actualOptions);
-            Assert.assertTrue(actualOptions.contains(dataTable.get(i)));
-
-            //         System.out.println("actualOptions = " + actualOptions);
-            //        System.out.println("dataTable = " + dataTable);
+        Assert.assertEquals(dataTable, actualOptions);
         }
-    }
 
     @Then("Transactions table should have columns names")
     public void transactions_table_should_have_columns_names(List<String> dataTable) {

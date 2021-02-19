@@ -52,6 +52,9 @@ public class AccountActivityPage extends BasePage{
     @FindBy(id = "aa_description")
     public WebElement descriptionInput;
 
+    @FindBy(id = "aa_type")
+    public WebElement typeInput;
+
 
 
 

@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -198,21 +199,66 @@ public class FindTransactionsStepDefs {
     }
 
     @When("user selects type {string}")
-    public void user_selects_type(String string) {
+    public void user_selects_type(String string) throws InterruptedException {
 
-
-
-
+        Select select = new Select(new AccountActivityPage().typeInput);
+        select.selectByVisibleText(string);
+        new AccountActivityPage().findButton.click();
+        Thread.sleep(1000);
     }
 
+    @Then("results table should show no result under Withdrawal")
+    public void results_table_should_show_no_result_under_Withdrawal() {
 
+        AccountActivityPage accountActivity = new AccountActivityPage();
+        List<WebElement> withdrawalResult= accountActivity.withdrawalColumn;
 
+        boolean x = true;
 
-
-
-
-
+        for (int i = 0; i < withdrawalResult.size(); i++) {
+            if(!withdrawalResult.get(i).getText().equals("")){
+                x = false;
+            }
+        }
+        Assert.assertTrue(x);
     }
+
+    @Then("results table should show no result under Deposit")
+    public void results_table_should_show_no_result_under_Deposit() {
+
+        AccountActivityPage accountActivity = new AccountActivityPage();
+        List<WebElement> depositResult = accountActivity.depositColumn;
+
+        boolean x = true;
+
+        for (int i = 0; i < depositResult.size(); i++) {
+            if(!depositResult.get(i).getText().equals("")){
+                x = false;
+            }
+        }
+        Assert.assertTrue(x);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
